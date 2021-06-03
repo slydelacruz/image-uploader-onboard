@@ -1,8 +1,12 @@
-import logo from "./logo.svg";
+
 import "./App.css";
+import { useEffect } from "react";
 
 function App() {
-  makeRowsLightGray()
+  useEffect(() => {
+    makeRowsLightGray()
+  }, [])
+  
   return (
     <div className="App">
       <div>-------------</div>
