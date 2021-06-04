@@ -1,6 +1,6 @@
-
 import "./App.css";
 import { useEffect } from "react";
+// import forEach from 'lodash/forEach';
 
 function App() {
   useEffect(() => {
@@ -45,6 +45,20 @@ export default App;
  */
 const rowOneText = () => {
   // must use code logic, no hard code
+  const firstRow = document.getElementsByClassName('row-1')
+  console.log('first row collection', firstRow)
+
+  let selectRow = null
+
+  // forEach(firstRow, row => {
+  //   let secondEl = row.childNodes;
+  //   console.log('second element', secondEl)
+  // })
+  let childDiv = firstRow[0].childNodes[1];
+  childDiv.setAttribute('class', 'second-element')
+  childDiv.innerHTML = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed maiores earum sunt amet quas incidunt nobis blanditiis sequi nihil molestias fugiat architecto exercitationem soluta necessitatibus beatae, itaque odit ut officiis!"
+  childDiv.style.marginTop = '30px'
+
   return ""
 }
 
@@ -56,6 +70,14 @@ const rowOneText = () => {
  */
 const rowTwoText = () => {
   // must use code logic, no hard coding
+  // const secondRow = document.querySelector('.row-2')
+  // let ele = secondRow.setAttribute('class', 'ele-field')
+
+  // console.log(ele)
+  // console.log(secondRow)
+
+
+
   return ""
 }
 
