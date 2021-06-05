@@ -1,23 +1,20 @@
-import logo from './logo.svg';
+
+import { useEffect } from 'react';
 import './App.css';
+import { getGrandParentElement, getGrandParentPreviousSibling, getParentElement, getSizeInputElements } from './utils';
 
 function App() {
+  useEffect(() => {
+    // #1 
+    getParentElement()
+    getGrandParentElement()
+    getGrandParentPreviousSibling()
+    getSizeInputElements()
+    
+  }, [])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
     </div>
   );
 }
