@@ -1,42 +1,27 @@
 /**
  * Display INNERHTML inside a div with class that contains 'second-element'. 
  * 1. Must start with document.getElementsByClassName("element") to get all elements
+ * 2. Filter through the elements to get the one that includes className of 'second-element
  * @returns 
  */
  export const rowOneText = () => {
   // must use code logic, no hard code
-  const firstRow = document.getElementsByClassName('row-1')
+  const elementDivs = document.getElementsByClassName('element')
 
-  console.log('first row collection', firstRow)
-
-  let selectRow = null
-
-  // forEach(firstRow, row => {
-  //   let secondEl = row.childNodes;
-  //   console.log('second element', secondEl)
-  // })
-  let childDiv = firstRow[0].childNodes[1];
-  childDiv.setAttribute('class', 'second-element')
-  childDiv.innerHTML = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed maiores earum sunt amet quas incidunt nobis blanditiis sequi nihil molestias fugiat architecto exercitationem soluta necessitatibus beatae, itaque odit ut officiis!"
-  childDiv.style.marginTop = '30px'
-
-  return ""
+   return ""
 }
 
 
 /**
  * Display value of the input element. 
  * 1. Must use document.getElementsByClassName("ele-field") to get all elements, 
- * 2. filter through tagName of each element AND filter through className to make sure it has dog in it 
+ * 2. filter through tagName of each element AND filter through className to make sure it contains 'dog' in it 
+ * 3. Console.log the tagname of the final element and value in it:
+ *      - example: console.log('tag name is: ', tagName, 'value is: ', value)
  * @returns 
  */
  export const rowTwoText = () => {
-  // must use code logic, no hard coding
-  // const secondRow = document.querySelector('.row-2')
-  // let ele = secondRow.setAttribute('class', 'ele-field')
-
-  // console.log(ele)
-  // console.log(secondRow)
+  const eleFieldDivs = document.getElementsByClassName('ele-field')
 
 
 
@@ -44,24 +29,30 @@
 }
 
 /**
- * Display tag names of all previousElementSiblings with class = 'element'. 1. Must use document.getElementsByClassName("element") to get all elements
+ * Display tag names of all firstChildElement innerHTML. 1. Must use document.getElementsByClassName("element") to get all elements
  * @returns 
  */
 export const displayTagNames = () => {
-  // must use code logic, no hard coding
+  const elementDivs = document.getElementsByClassName('element')  
+
+  // loop through the element
+    // console.log inside each element the first child element or first element child innerHTML
   return ""
 }
 
 /**
  * 1. Get all elements with className ele-field in it... 
- * 2. loop through to and if previousSibling contains 'field' regardless of capital letters, add the 'ele-field' element to the array (array.push()) 
- * 3. console.log it
+ * 2. loop through each element
+ * 3. if the element previousElementSibling has innerHTML with 'field' whether the letters are capitalized or not
+ * 4. if conditions match on #3, push the element into selectedEleFields (selectedEleFields.push())
+ * 5. Console.log selectedEleFields
  * 
  */
 export const displayConsolelog = () => {
-  let matchedPreviousSiblings = []
-  // you can use matchedPreviousSiblings.push() -> google array.push
-  console.log("matched previous siblings with 'field' regardless of capital letters or not")
+  let selectedEleFields = []
+  const eleFieldDivs = document.getElementsByClassName('ele-field')
+
+  
 }
 
 /**
@@ -72,5 +63,5 @@ export const displayConsolelog = () => {
  *            -> google HTML dom style if you need to
  */
 export const makeRowsLightGray = () => {
-
+  
 }
