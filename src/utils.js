@@ -4,11 +4,19 @@
  * 2. Filter through the elements to get the one that includes className of 'second-element
  * @returns 
  */
- export const rowOneText = () => {
-  // must use code logic, no hard code
+export const rowOneText = () => {
+  // yarn
   const elementDivs = document.getElementsByClassName('element')
+  const row1 = document.querySelector('.row-1-answer')
 
-   return ""
+  Array.prototype.forEach.call(elementDivs, (el) => {
+    if (el.classList.contains('second-element')) {
+      console.log(el.innerHTML)
+      row1.innerHTML = `<br> ${String(el.innerHTML).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')}`
+    }
+  });
+
+  return ""
 }
 
 
@@ -20,9 +28,17 @@
  *      - example: console.log('tag name is: ', tagName, 'value is: ', value)
  * @returns 
  */
- export const rowTwoText = () => {
+export const rowTwoText = () => {
   const eleFieldDivs = document.getElementsByClassName('ele-field')
-
+  const row2 = document.querySelector('.row-2-answer')
+  Array.prototype.forEach.call(eleFieldDivs, (el) => {
+    if (el.classList.contains('dog')) {
+      const tagName = el.tagName
+      const value = el.value
+      console.log('tag name is: ', tagName, 'value is: ', value)
+      row2.innerHTML = `<br> tag name is: ${tagName} value is: ${value}`
+    }
+  });
 
 
   return ""
@@ -33,10 +49,15 @@
  * @returns 
  */
 export const displayTagNames = () => {
-  const elementDivs = document.getElementsByClassName('element')  
-
+  const elementDivs = document.getElementsByClassName('element')
+  const row3 = document.querySelector('.row-4-answer')
+  Array.prototype.forEach.call(elementDivs, (el) => {
+    console.log("First child element tagname is " +el.firstElementChild.tagName + " and innerhtml is " +el.firstElementChild.innerHTML)
+    const elDetails = `<br>First child element tagname is ${el.firstElementChild.tagName} and innerhtml is ${el.firstElementChild.innerHTML}`
+    row3.insertAdjacentHTML('afterbegin', elDetails)
+  });
   // loop through the element
-    // console.log inside each element the first child element or first element child innerHTML
+  // console.log inside each element the first child element or first element child innerHTML
   return ""
 }
 
@@ -51,8 +72,14 @@ export const displayTagNames = () => {
 export const displayConsolelog = () => {
   let selectedEleFields = []
   const eleFieldDivs = document.getElementsByClassName('ele-field')
+  Array.prototype.forEach.call(eleFieldDivs, (el) => {
 
-  
+    if (el.previousElementSibling.innerHTML.toLowerCase().includes('field')) {
+      selectedEleFields.push(el.previousElementSibling)
+    }
+
+  });
+  console.log(selectedEleFields)
 }
 
 /**
@@ -63,5 +90,12 @@ export const displayConsolelog = () => {
  *            -> google HTML dom style if you need to
  */
 export const makeRowsLightGray = () => {
-  
+  const dropdown = document.querySelector('.select-wrapper select')
+  dropdown.addEventListener('change', (event) => {
+    let row = document.getElementsByClassName(event.target.value)
+    Array.prototype.forEach.call(row, (el) => {
+      el.style.background = 'lightgray'
+
+    });
+  });
 }
